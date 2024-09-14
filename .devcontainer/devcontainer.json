@@ -1,0 +1,68 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose
+{
+  "name": "CBC",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  // Use this environment variable if you need to bind mount your local source code into a new container.
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "latest",
+      "enableNonRootDocker": "true",
+      "moby": "false"
+    },
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/git:1": "os-provided"
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3010, 5432, 5555],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode-remote.remote-containers",
+        "Prisma.prisma",
+        "bradlc.vscode-tailwindcss",
+        "YoavBls.pretty-ts-errors",
+        "Supermaven.supermaven"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "always"
+        },
+        "typescript.validate.enable": true,
+        "eslint.alwaysShowStatus": true,
+        "[prisma]": {
+          "editor.defaultFormatter": "Prisma.prisma"
+        },
+        "workbench.colorTheme": "Default Dark Modern",
+        "security.workspace.trust.untrustedFiles": "open",
+        "editor.minimap.enabled": false,
+        "files.autoSave": "onFocusChange",
+        "explorer.confirmDelete": false,
+        "git.enableSmartCommit": true,
+        "git.autofetch": true,
+        "explorer.confirmDragAndDrop": false,
+        "git.confirmSync": false
+      }
+    }
+  },
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "npm i -g vercel@latest && npm install && npm run dev"
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "node"
+}

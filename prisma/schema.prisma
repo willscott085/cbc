@@ -1,0 +1,41 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DB_PRISMA_URL") // uses connection pooling
+  directUrl = env("DB_URL_NON_POOLING") // uses a direct connection
+}
+
+model Pastor {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?  @unique
+  sermons   Sermon[]
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+model Sermon {
+  id        String   @id @default(cuid())
+  title     String
+  url       String   @unique
+  pastor    Pastor   @relation(fields: [pastorId], references: [id])
+  pastorId  String
+  date      DateTime
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  @@map(name: "sermons")
+}
+
+model Bible {
+  id      Int    @id
+  book    Int
+  chapter Int
+  verse   Int
+  text    String
+}
