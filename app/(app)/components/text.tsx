@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { createElement, PropsWithChildren } from "react";
 
 interface Props extends PropsWithChildren {
-  variant: "p";
+  variant?: "p";
   className?: string;
 }
 

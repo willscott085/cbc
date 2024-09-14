@@ -50,7 +50,7 @@ export default function Map() {
         style={{ border: 0 }}
         loading="lazy"
         allowFullScreen
-        src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJs8dEEM-FXkgR4hHCLI2selw&key=AIzaSyBgvrBR_uvyeqtqgcThrnSypHIujEU4mDQ&zoom=${zoomLevel}&center=53.952877,-8.065012`}
+        src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJs8dEEM-FXkgR4hHCLI2selw&key=replace-this&zoom=${zoomLevel}&center=53.952877,-8.065012`}
       ></iframe>
     </div>
   );

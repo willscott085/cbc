@@ -1,5 +1,4 @@
-import { Button } from "@/app/components/button";
-import prisma from "@/lib/prisma";
+import prisma from "@/app/lib/prisma";
 
 async function fetchData() {
   const data = prisma.sermon.findMany({
@@ -22,7 +21,7 @@ export default async function AdminSermonsPage() {
   return (
     <section className="h-screen w-screen">
       <div className="flex h-screen w-screen items-center justify-center">
-        <form action={handler} method="POST">
+        <form action={handler}>
           <fieldset className="w-full">
             <label className="w-full" htmlFor="title">
               Title
@@ -59,7 +58,7 @@ export default async function AdminSermonsPage() {
             </select>
           </fieldset>
           <div className="mt-4 flex w-full items-center justify-center">
-            <Button type="submit">Submit</Button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>

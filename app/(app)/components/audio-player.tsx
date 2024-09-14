@@ -10,8 +10,8 @@ import volumeIcon from "../../../public/audio-player/volume-icon.svg";
 import volumeMutedIcon from "../../../public/audio-player/volume-muted-icon.svg";
 
 interface Props {
-  src: string;
-  metadata: string;
+  src?: string;
+  metadata?: string;
   title?: string;
 }
 

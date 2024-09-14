@@ -2,8 +2,8 @@ import { getStoryblokApi } from "@storyblok/react/rsc";
 import Image from "next/image";
 
 import Heading from "./components/heading";
-import Text from "./components/text";
 import Map from "./components/map";
+import Text from "./components/text";
 
 export default async function HomePage() {
   const data = await fetchData();

@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import prisma from "@/app/lib/prisma";
 
 async function fetchData() {
   const data = prisma.bible.findMany({

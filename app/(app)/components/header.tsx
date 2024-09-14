@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useUrlHash } from "../utils/useUrlHash";
+import { useUrlHash } from "../../utils/useUrlHash";
 
 export default function Header() {
   const hashPath = useUrlHash();
   const pathname = usePathname();
 
-  const active = (current) =>
+  const active = (current: string) =>
     hashPath === current || pathname === current
       ? "shadow-[inset_0_-2px_0px_rgba(0,0,0,1)]"
       : "";
