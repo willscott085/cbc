@@ -17,7 +17,7 @@
       "enableNonRootDocker": "true",
       "moby": "false"
     },
-    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/node:2": {},
     "ghcr.io/devcontainers/features/git:1": "os-provided"
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
